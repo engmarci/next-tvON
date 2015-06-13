@@ -1,0 +1,42 @@
+13/06/2015
+
+- Movile note: 367, senha: movile2015
+
+- Rede Royal, senha: 8955
+
+- gradlle, gerencia dependências
+
+- virtual box, instalar genymotion - emulador android
+
+- www.app.zeplin.io.com
+
+- Android Studio
+  studio.sh
+  criar novo projeto, selecionar pacotes básicos: Android SDK tools e Android SDK Platform tools
+  API 16 Android 4.1 (Jelly Bean)
+  ctrl+shift+n, procurar arquivo
+
+- na hora de gerar o certificado,colocar um valor para 30 anos no keytool (-validity 10000)
+  problemas de segurança, 
+    ferramenta "chef vaults"
+    variáveis de ambiente
+    prompt
+
+- ferramenta proguard, usada para otimizar e ofuscar código
+
+- hashtag, performace matters (youtube)
+
+- ferramenta rastrear erros usuário, crashleaks
+
+- na definição de dependências é recomendável utilizar a versão completa e não (12.1.+) incluir a mais recentes
+
+- Google - cloud test lab
+
+- DexCount, solução para quando o erro número de métodos exced
+
+- 9-patch,conceito que defini tamanho de imagens
+
+- tamanho  de fonte "sp", para o restante é "dp"
+
+
+
