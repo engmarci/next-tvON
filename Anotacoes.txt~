@@ -7,8 +7,9 @@
 - gradlle, gerencia dependências
 
 - virtual box, instalar genymotion - emulador android
+	Google Nexus 4 - 5.1.0 - API 22 - 1080x1920
 
-- www.app.zeplin.io.com
+- https://app.zeplin.io/login.html
 
 - Android Studio
   studio.sh
@@ -36,7 +37,17 @@
 
 - 9-patch,conceito que defini tamanho de imagens
 
-- 
+- tamanho  de fonte "sp", para o restante é "dp"
 
+
+
+
+********  14/06/2015 ******** ******** ******** ******** ********
+
+- Limite de 5 segundos thread de UI
+
+- Biblioteca Picasso é famosa, porém, é muita lenta. Não utilizar
+
+- www.google.com/design/spec/patterns
 
 

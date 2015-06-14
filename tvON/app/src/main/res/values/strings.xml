@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">tvON</string>
 
-    <string name="hello_world">Hello world!</string>
+    <!-- Base Navigation -->
+    <string name="base_navigation_drawer_open">Open</string>
+    <string name="base_navigation_drawer_close">Close</string>
+
+    <!-- TO BE CONTINUED -->
     <string name="action_settings">Settings</string>
+
 </resources>
