@@ -20,4 +20,5 @@ public class EpisodeDetailsLoaderAsyncTask extends AsyncTaskLoader {
         FetchHttpEpisodeDetails fetchData = new FetchHttpEpisodeDetails();
         return fetchData.get(this.cont);
     }
+
 }

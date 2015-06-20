@@ -10,4 +10,6 @@
     <dimen name="default_textSize_veryLarge">24sp</dimen>
 
     <!-- TO BE CONTINUED -->
+    <dimen name="list_view_divider_height">2dp</dimen>
+
 </resources>

@@ -24,5 +24,6 @@
     <color name="theme_windowBackground">@color/default_background_first</color>
 
     <!-- TO BE CONTINUED -->
+    <color name="list_view_divider_color">#FF9800</color>
 
 </resources>

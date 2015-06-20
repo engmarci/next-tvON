@@ -1,28 +1,35 @@
 package com.movile.next.tvON.activity;
 
+import android.graphics.Bitmap;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.movile.next.tvON.R;
-import com.movile.next.tvON.asynctask.EpisodeDetailsAsyncTask;
-import com.movile.next.tvON.asynctask.IEpisodeDetails;
 import com.movile.next.tvON.model.Episode;
+import com.movile.next.tvON.model.Images;
+import com.movile.next.tvON.presenter.EpisodeDetailsPresenter;
 import com.movile.next.tvON.util.FormatUtil;
+import com.movile.next.tvON.view.EpisodeDetailsView;
 
 
-public class EpisodeDetailsActivity extends ActionBarActivity implements IEpisodeDetails {
-
+//public class EpisodeDetailsActivity extends ActionBarActivity implements IEpisodeDetails, IEpisodeDetailsImage {
+public class EpisodeDetailsActivity extends ActionBarActivity implements EpisodeDetailsView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.episdode_details_acitivity);
 
-        EpisodeDetailsAsyncTask epTask = new EpisodeDetailsAsyncTask(this, this);
-        epTask.execute();
+
+        String url = getString(R.string.api_url_base);
+        EpisodeDetailsPresenter viewPres = new EpisodeDetailsPresenter(url, this);
+        viewPres.loadEpisodeDetailsRetrofit("house", (long)6, (long)3);
+
 
         Log.d("onCreate", "EpisodeDetailsActivity... onCreate");
     }
@@ -60,5 +67,24 @@ public class EpisodeDetailsActivity extends ActionBarActivity implements IEpisod
 
         TextView tvSummary = (TextView) findViewById(R.id.text_episode_details_content);
         tvSummary.setText(ep.overview());
+
+
+
+        //Carregando imagem assíncrona
+        //EpisodeDetailsImageAsyncTask imgTask = new EpisodeDetailsImageAsyncTask(this);
+        //imgTask.execute(ep.images().screenshot().get(Images.ImageSize.THUMB));
+
+
+
+        //Carregando imagem com API Glide
+        Glide.with(this)
+                .load(ep.images().screenshot().get(Images.ImageSize.THUMB))
+                .into((ImageView) findViewById(R.id.image_episode));
+    }
+
+    public void onEpisodeLoadImage(Bitmap bitmap){
+
+        ImageView tvImage = (ImageView) findViewById(R.id.image_episode);
+        tvImage.setImageBitmap(bitmap);
     }
 }
