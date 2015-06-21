@@ -12,4 +12,11 @@
     <!-- TO BE CONTINUED -->
     <dimen name="list_view_divider_height">2dp</dimen>
 
+    <!-- Base Navigation Toolbar -->
+    <dimen name="base_navigation_toolbar_height">56dp</dimen>
+    <dimen name="base_navigation_toolbar_minHeight">@dimen/base_navigation_toolbar_height</dimen>
+
+    <!-- Base Loading -->
+    <dimen name="base_loading_progress_size">48dp</dimen>
+
 </resources>

@@ -3,13 +3,13 @@ package com.movile.next.tvON.presenter;
 import com.movile.next.tvON.asynctask.IEpisodeDetails;
 import com.movile.next.tvON.model.Episode;
 import com.movile.next.tvON.remote.client.EpisodeRemoteClient;
-import com.movile.next.tvON.view.EpisodeDetailsView;
+import com.movile.next.tvON.view.IEpisodeDetailsView;
 
 public class EpisodeDetailsPresenter implements IEpisodeDetails {
-    private EpisodeDetailsView mView;
+    private IEpisodeDetailsView mView;
     private String mUrl;
 
-    public EpisodeDetailsPresenter(String url, EpisodeDetailsView presView){
+    public EpisodeDetailsPresenter(String url, IEpisodeDetailsView presView){
         this.mView = presView;
         this.mUrl = url;
     }

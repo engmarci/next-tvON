@@ -11,25 +11,37 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.movile.next.tvON.R;
+import com.movile.next.tvON.activity.base.BaseNavigationToolbarActivity;
 import com.movile.next.tvON.model.Episode;
 import com.movile.next.tvON.model.Images;
 import com.movile.next.tvON.presenter.EpisodeDetailsPresenter;
 import com.movile.next.tvON.util.FormatUtil;
-import com.movile.next.tvON.view.EpisodeDetailsView;
+import com.movile.next.tvON.view.IEpisodeDetailsView;
+
+import java.text.MessageFormat;
 
 
 //public class EpisodeDetailsActivity extends ActionBarActivity implements IEpisodeDetails, IEpisodeDetailsImage {
-public class EpisodeDetailsActivity extends ActionBarActivity implements EpisodeDetailsView {
+public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implements IEpisodeDetailsView {
+
+    public static final String EXTRA_EPISODE = "EXTRA_EPISODE";
+
+    private Long mEpisodeNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.episdode_details_acitivity);
 
+        configureToolbar();
+
+        mEpisodeNumber = getIntent().getExtras().getLong(EXTRA_EPISODE);
 
         String url = getString(R.string.api_url_base);
         EpisodeDetailsPresenter viewPres = new EpisodeDetailsPresenter(url, this);
-        viewPres.loadEpisodeDetailsRetrofit("house", (long)6, (long)3);
+        viewPres.loadEpisodeDetailsRetrofit("house", (long)6, mEpisodeNumber);
 
+        getSupportActionBar().setTitle(MessageFormat.format("Season{0}", "2"));
 
         Log.d("onCreate", "EpisodeDetailsActivity... onCreate");
     }
