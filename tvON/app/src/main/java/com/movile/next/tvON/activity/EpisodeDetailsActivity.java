@@ -24,8 +24,12 @@ import java.text.MessageFormat;
 //public class EpisodeDetailsActivity extends ActionBarActivity implements IEpisodeDetails, IEpisodeDetailsImage {
 public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implements IEpisodeDetailsView {
 
+    public static final String EXTRA_SHOW = "EXTRA_SHOW";
+    public static final String EXTRA_SEASON = "EXTRA_SEASON";
     public static final String EXTRA_EPISODE = "EXTRA_EPISODE";
 
+    private String mShowNumber;
+    private Long mSeasonNumber;
     private Long mEpisodeNumber;
 
     @Override
@@ -35,13 +39,15 @@ public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implem
 
         configureToolbar();
 
+        mShowNumber = getIntent().getExtras().getString(EXTRA_SHOW);
+        mSeasonNumber = getIntent().getExtras().getLong(EXTRA_SEASON);
         mEpisodeNumber = getIntent().getExtras().getLong(EXTRA_EPISODE);
 
         String url = getString(R.string.api_url_base);
         EpisodeDetailsPresenter viewPres = new EpisodeDetailsPresenter(url, this);
-        viewPres.loadEpisodeDetailsRetrofit("house", (long)6, mEpisodeNumber);
+        viewPres.loadEpisodeDetailsRetrofit(mShowNumber, mSeasonNumber, mEpisodeNumber);
 
-        getSupportActionBar().setTitle(MessageFormat.format("Season{0}", "2"));
+        getSupportActionBar().setTitle(MessageFormat.format("Episode {0}", mEpisodeNumber.toString()));
 
         Log.d("onCreate", "EpisodeDetailsActivity... onCreate");
     }

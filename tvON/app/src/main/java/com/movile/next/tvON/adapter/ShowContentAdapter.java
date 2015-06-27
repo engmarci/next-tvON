@@ -11,13 +11,10 @@ import com.movile.next.tvON.fragment.InformationFragment;
 import com.movile.next.tvON.fragment.SeasonFragment;
 
 public class ShowContentAdapter extends FragmentPagerAdapter {
-    private FragmentManager mFragmentManager;
-    static final int ITEMS = 10;
+    private static final int ITEMS = 2;
 
     public ShowContentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-
-        mFragmentManager = fragmentManager;
     }
 
     @Override
@@ -25,6 +22,7 @@ public class ShowContentAdapter extends FragmentPagerAdapter {
         return ITEMS;
     }
 
+    @Override
     public Fragment getItem(int position) {
 
         Fragment fragment = null;
@@ -41,6 +39,17 @@ public class ShowContentAdapter extends FragmentPagerAdapter {
         }
 
         return fragment;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        if (position == 0) {
+            return "INFO";
+        }
+        if (position == 1) {
+            return "SEASONS";
+        }
+        return "Not found";
     }
 
 }

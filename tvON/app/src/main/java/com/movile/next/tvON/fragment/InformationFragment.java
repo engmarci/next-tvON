@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.movile.next.tvON.R;
 
-public class InformationFragment extends Fragment {
+public class InformationFragment extends Fragment{
 
     public static final String EXTRA_SHOW = "EXTRA_SHOW";
 
@@ -20,4 +20,5 @@ public class InformationFragment extends Fragment {
 
         return view;
     }
+
 }

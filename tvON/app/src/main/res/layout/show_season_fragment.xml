@@ -3,11 +3,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image_seasonFrag"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/seasons_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/overlay" />
+        android:scrollbars="horizontal"/>
 
 </LinearLayout>
