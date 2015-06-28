@@ -23,6 +23,7 @@ public class SeasonFragment  extends Fragment implements ISeasonsView, IOnSeason
 
     private ShowSeasonsAdapter seasonsAd;
     public static final String EXTRA_SHOW = "EXTRA_SHOW";
+    private String mShowNumber;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +31,7 @@ public class SeasonFragment  extends Fragment implements ISeasonsView, IOnSeason
         View view = inflater.inflate(R.layout.show_season_fragment,
                 container, false);
 
+        mShowNumber = getArguments().getString("EXTRA_SHOW");
 
         RecyclerView viewRe = (RecyclerView)view.findViewById(R.id.seasons_recycler_view);
         viewRe.setLayoutManager(
@@ -46,7 +48,7 @@ public class SeasonFragment  extends Fragment implements ISeasonsView, IOnSeason
 
         String url = getString(R.string.api_url_base);
         SeasonsPresenter seasonsPres = new SeasonsPresenter(url, this);
-        seasonsPres.loadSeasonsRetrofit("house");
+        seasonsPres.loadSeasonsRetrofit(mShowNumber);
     }
 
     public void onSeasonsLoad(List<Season> seasons) {
@@ -60,7 +62,7 @@ public class SeasonFragment  extends Fragment implements ISeasonsView, IOnSeason
         Intent intent = new Intent(this.getActivity(), SeasonDetailsActivity.class);
         //intent.putExtra(EXTRA_SEASON, message);
         //intent.putExtra(EXTRA_MESSAGE, message);
-        intent.putExtra(SeasonDetailsActivity.EXTRA_SHOW, "house");
+        intent.putExtra(SeasonDetailsActivity.EXTRA_SHOW, mShowNumber);
         intent.putExtra(SeasonDetailsActivity.EXTRA_SEASON, season.number());
         startActivity(intent);
     }

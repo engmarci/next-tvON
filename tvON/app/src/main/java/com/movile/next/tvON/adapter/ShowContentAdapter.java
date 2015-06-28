@@ -12,9 +12,11 @@ import com.movile.next.tvON.fragment.SeasonFragment;
 
 public class ShowContentAdapter extends FragmentPagerAdapter {
     private static final int ITEMS = 2;
+    private String mShowNumber;
 
-    public ShowContentAdapter(FragmentManager fragmentManager) {
+    public ShowContentAdapter(FragmentManager fragmentManager, String showNumber) {
         super(fragmentManager);
+        mShowNumber = showNumber;
     }
 
     @Override
@@ -29,13 +31,15 @@ public class ShowContentAdapter extends FragmentPagerAdapter {
 
         Bundle arguments = new Bundle();
         if (position == 0){
-            //arguments.putSerializable(InformationFragment.EXTRA_SHOW);
+            arguments.putSerializable("EXTRA_SHOW", mShowNumber);
             fragment = new InformationFragment();
+            fragment.setArguments(arguments);
         }
 
         if (position == 1){
-            //arguments.putSerializable(SeasonFragment.EXTRA_SHOW);
+            arguments.putSerializable("EXTRA_SHOW", mShowNumber);
             fragment = new SeasonFragment();
+            fragment.setArguments(arguments);
         }
 
         return fragment;

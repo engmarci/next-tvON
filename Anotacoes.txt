@@ -58,8 +58,28 @@
 
 - Glide - api carregar imagem
 
-- 
 
+
+********  28/06/2015 ******** ******** ******** ******** ********
+
+Android weekly - news
+
+Chris Banes
+
+android-developer blog
+
+própia documentação do android
+
+android arsenal
+
+broadcast receiver
+  lançar e escutar eventos (entre aplicações ou na própia aplicação)
+
+content provider publico
+
+Firebase
+
+chrome://inspect
 
 
 

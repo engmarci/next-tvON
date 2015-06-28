@@ -1,5 +1,7 @@
 package com.movile.next.tvON.activity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +14,7 @@ import com.movile.next.tvON.adapter.ShowListAdapter;
 import com.movile.next.tvON.listener.IOnShowClick;
 import com.movile.next.tvON.model.Show;
 import com.movile.next.tvON.presenter.ShowListPresenter;
+import com.movile.next.tvON.service.UpdatesService;
 import com.movile.next.tvON.view.IShowListView;
 
 import java.util.List;
@@ -32,6 +35,12 @@ public class ShowListActivity extends ActionBarActivity implements IShowListView
 
         showAd = new ShowListAdapter(this, this);
         view.setAdapter(showAd);
+
+        /*
+        PendingIntent pendingIntent = PendingIntent.getService(this, 0, new Intent(this, UpdatesService.class), 0);
+        AlarmManager manager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 1000, pendingIntent);
+        */
 
         Log.d("onCreate", "ShowListActivity... onCreate");
     }

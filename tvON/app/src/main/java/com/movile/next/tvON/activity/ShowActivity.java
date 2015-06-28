@@ -32,15 +32,14 @@ public class ShowActivity extends BaseNavigationToolbarActivity implements IShow
 
         configureToolbar();
 
-        ViewPager vpShow = (ViewPager) findViewById(R.id.show_details_content);
-        ShowContentAdapter adpShow = new ShowContentAdapter(getSupportFragmentManager());
-        vpShow.setAdapter(adpShow);
-
-
         mShowNumber = getIntent().getExtras().getString(EXTRA_SHOW);
 
-        //String url = getString(R.string.api_url_base);
+        ViewPager vpShow = (ViewPager) findViewById(R.id.show_details_content);
+        ShowContentAdapter adpShow = new ShowContentAdapter(getSupportFragmentManager(), mShowNumber);
+        vpShow.setAdapter(adpShow);
+
         String url = getString(R.string.api_url_base);
+        //String url = getString(R.string.api_url_base);
         ShowPresenter showPres = new ShowPresenter(url, this);
         showPres.loadShowRetrofit(mShowNumber);
 
