@@ -18,6 +18,7 @@ import com.movile.next.tvON.model.Show;
 import com.movile.next.tvON.presenter.ShowPresenter;
 import com.movile.next.tvON.view.IShowView;
 
+import java.text.DecimalFormat;
 import java.text.MessageFormat;
 
 public class ShowActivity extends BaseNavigationToolbarActivity implements IShowView {
@@ -66,7 +67,9 @@ public class ShowActivity extends BaseNavigationToolbarActivity implements IShow
 
     public void onShowLoad(Show show) {
         TextView tvTitle = (TextView) findViewById(R.id.text_seasonRating);
-        tvTitle.setText(show.rating().toString());
+        //tvTitle.setText(show.rating().toString());
+        DecimalFormat df = new DecimalFormat("#.#");
+        tvTitle.setText(df.format(show.rating()));
 
         //Carregando imagem com API Glide
         Glide.with(this)

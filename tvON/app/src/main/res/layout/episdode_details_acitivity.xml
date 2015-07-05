@@ -21,14 +21,6 @@
                 android:src="@drawable/overlay" />
 
             <TextView
-                android:id="@+id/episode_title1"
-                android:text="Episode 2...."
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_alignTop="@+id/image_episode"/>
-
-            <TextView
                 android:id="@+id/episode_title2"
                 android:text="The House of Black and White"
                 android:layout_width="match_parent"

@@ -41,10 +41,17 @@
         <item name="android:indeterminate">true</item>
     </style>
 
-
-
     <style name="AppTheme.Shows">
         <item name="android:numColumns">auto_fit</item>
+    </style>
+
+    <style name="AppTheme.Navigation.Drawer"></style>
+
+    <style name="AppTheme.Navigation.Drawer.Content">
+        <item name="android:layout_width">@dimen/base_navigation_drawer_content_width</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@color/base_navigation_drawer_content_background</item>
     </style>
 
 </resources>

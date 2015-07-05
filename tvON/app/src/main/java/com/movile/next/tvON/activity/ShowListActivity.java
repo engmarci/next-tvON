@@ -1,7 +1,5 @@
 package com.movile.next.tvON.activity;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,7 +12,6 @@ import com.movile.next.tvON.adapter.ShowListAdapter;
 import com.movile.next.tvON.listener.IOnShowClick;
 import com.movile.next.tvON.model.Show;
 import com.movile.next.tvON.presenter.ShowListPresenter;
-import com.movile.next.tvON.service.UpdatesService;
 import com.movile.next.tvON.view.IShowListView;
 
 import java.util.List;
